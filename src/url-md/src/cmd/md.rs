@@ -209,8 +209,10 @@ fn slugify(s: &str) -> String {
         .join("-");
     if s.is_empty() {
         "untitled".into()
-    } else if s.len() > 60 {
-        s[..60].to_string()
+    } else if s.chars().count() > 60 {
+        // 按字符截断,避免在多字节 UTF-8(如中文)边界内切片导致 panic
+        let truncated: String = s.chars().take(60).collect();
+        truncated.trim_end_matches('-').to_string()
     } else {
         s
     }
@@ -234,6 +236,26 @@ fn error_to_exit_code(e: &PipelineError) -> u8 {
         PipelineError::Fetch(_) => 10,
         PipelineError::ExtractFailed { .. } => 20,
         PipelineError::Internal(_) => 99,
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::slugify;
+
+    #[test]
+    fn slugify_handles_long_multibyte_titles() {
+        // 之前会在字节 60(落在 '了' 的中间)上 panic
+        let title = "deepseek 出了个终端编程 agent 刚开源 就 8.1k star 了 我把代码读完后发现 它真正的壁垒不是 AI 是会计";
+        let slug = slugify(title);
+        // 不 panic,且按字符截断到 <= 60
+        assert!(slug.chars().count() <= 60);
+        assert!(!slug.ends_with('-'));
+    }
+
+    #[test]
+    fn slugify_empty_is_untitled() {
+        assert_eq!(slugify("!!!"), "untitled");
     }
 }
 

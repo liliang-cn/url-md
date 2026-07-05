@@ -1,14 +1,14 @@
 # url-md installer (Windows PowerShell)
 # Usage:
-#   irm https://raw.githubusercontent.com/Bwkyd/url-md/main/install.ps1 | iex
-#   $v = 'v0.1.1'; irm https://raw.githubusercontent.com/Bwkyd/url-md/main/install.ps1 | iex
+#   irm https://raw.githubusercontent.com/liliang-cn/url-md/main/install.ps1 | iex
+#   $v = 'v0.1.1'; irm https://raw.githubusercontent.com/liliang-cn/url-md/main/install.ps1 | iex
 #
 # Env:
 #   $env:URL_MD_INSTALL  override install dir (default: $HOME\.url-md)
 
 $ErrorActionPreference = 'Stop'
 
-$Repo = 'Bwkyd/url-md'
+$Repo = 'liliang-cn/url-md'
 $Version = if ($v) { $v } else { 'latest' }
 $InstallDir = if ($env:URL_MD_INSTALL) { $env:URL_MD_INSTALL } else { "$HOME\.url-md" }
 $BinDir = "$InstallDir\bin"

@@ -1,8 +1,8 @@
 # url-md
 
-[![Release](https://img.shields.io/github/v/release/Bwkyd/url-md)](https://github.com/Bwkyd/url-md/releases)
+[![Release](https://img.shields.io/github/v/release/liliang-cn/url-md)](https://github.com/liliang-cn/url-md/releases)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](./LICENSE)
-[![Stars](https://img.shields.io/github/stars/Bwkyd/url-md?style=social)](https://github.com/Bwkyd/url-md)
+[![Stars](https://img.shields.io/github/stars/liliang-cn/url-md?style=social)](https://github.com/liliang-cn/url-md)
 
 [English →](./README.en.md) · 中文
 
@@ -13,13 +13,13 @@
 ### macOS / Linux
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Bwkyd/url-md/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liliang-cn/url-md/main/install.sh | bash
 ```
 
 ### Windows(PowerShell)
 
 ```powershell
-irm https://raw.githubusercontent.com/Bwkyd/url-md/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/liliang-cn/url-md/main/install.ps1 | iex
 ```
 
 装到 `~/.url-md/bin/url-md`(Windows 为 `%USERPROFILE%\.url-md\bin\url-md.exe`)。脚本会提示如何加 PATH。
@@ -29,19 +29,19 @@ irm https://raw.githubusercontent.com/Bwkyd/url-md/main/install.ps1 | iex
 
 **Rust 用户** — 一行从 git 装:
 ```bash
-cargo install --git https://github.com/Bwkyd/url-md url-md --locked
+cargo install --git https://github.com/liliang-cn/url-md url-md --locked
 ```
 
 **从源码构建** — 不想全局安装:
 ```bash
-git clone https://github.com/Bwkyd/url-md.git
+git clone https://github.com/liliang-cn/url-md.git
 cd url-md && cargo build --release
 ./target/release/url-md <URL>
 ```
 
 **指定版本** — installer 接受 tag 参数:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Bwkyd/url-md/main/install.sh | bash -s v0.1.2
+curl -fsSL https://raw.githubusercontent.com/liliang-cn/url-md/main/install.sh | bash -s v0.1.2
 ```
 </details>
 

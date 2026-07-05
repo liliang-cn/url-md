@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 # url-md installer (macOS / Linux)
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/Bwkyd/url-md/main/install.sh | bash
-#   curl -fsSL https://raw.githubusercontent.com/Bwkyd/url-md/main/install.sh | bash -s v0.1.1
+#   curl -fsSL https://raw.githubusercontent.com/liliang-cn/url-md/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/liliang-cn/url-md/main/install.sh | bash -s v0.1.1
 #
 # Env:
 #   URL_MD_INSTALL  override install dir (default: $HOME/.url-md)
 
 set -euo pipefail
 
-REPO="Bwkyd/url-md"
+REPO="liliang-cn/url-md"
 VERSION="${1:-latest}"
 INSTALL_DIR="${URL_MD_INSTALL:-$HOME/.url-md}"
 BIN_DIR="$INSTALL_DIR/bin"

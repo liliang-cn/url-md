@@ -116,7 +116,14 @@ pub async fn run(args: Args) -> Result<(), u8> {
             print!("{}", rendered);
         }
         Some(path) => {
-            let final_path = if path.is_dir() {
+            // 目录意图:已存在的目录,或路径以分隔符结尾(如 `out/`,尚未创建)。
+            // 两者都自动命名 `{date}-{host}-{slug}.md` 放进该目录。
+            let looks_like_dir = path.is_dir()
+                || path
+                    .as_os_str()
+                    .to_string_lossy()
+                    .ends_with(std::path::MAIN_SEPARATOR);
+            let final_path = if looks_like_dir {
                 path.join(auto_filename(&args.url, &doc))
             } else {
                 path
